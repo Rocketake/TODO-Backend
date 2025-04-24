@@ -7,13 +7,13 @@ import {
 } from '../controllers/todo.js';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 
-const router = Router();
+const todoRouter = Router();
 
-router.get('/todo', ctrlWrapper(getAllTodosController));
+todoRouter.get('/', ctrlWrapper(getAllTodosController));
 
-router.post('/todo', ctrlWrapper(createTodoController));
+todoRouter.post('/', ctrlWrapper(createTodoController));
 
-router.delete('/todo/:todoId', ctrlWrapper(deleteTodoController));
+todoRouter.delete('/:todoId', ctrlWrapper(deleteTodoController));
 
-router.patch('/todo/:todoId', ctrlWrapper(patchTodoController));
-export default router;
+todoRouter.patch('/:todoId', ctrlWrapper(patchTodoController));
+export default todoRouter;
