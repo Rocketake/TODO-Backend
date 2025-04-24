@@ -3,16 +3,12 @@ import { model, Schema } from 'mongoose';
 ('in progress');
 const todosSchema = new Schema(
   {
-    title: {
-      type: String,
-      required: true,
-    },
     description: {
       type: String,
+      required: true,
     },
     status: {
       type: Boolean,
-      required: true,
       default: 'false',
     },
   },
