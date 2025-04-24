@@ -11,10 +11,9 @@ const todosSchema = new Schema(
       type: String,
     },
     status: {
-      type: String,
-      enum: ['todo', 'in progress', 'done'],
+      type: Boolean,
       required: true,
-      default: 'todo',
+      default: 'false',
     },
   },
   {

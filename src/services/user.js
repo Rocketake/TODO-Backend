@@ -34,7 +34,13 @@ export const loginUser = async (credentials) => {
     throw new Error('Invalid password');
   }
   const accessToken = generateAccessToken(user._id);
-  return { accessToken };
+  return {
+    accessToken,
+    user: {
+      username: user.username,
+      email: user.email,
+    },
+  };
 };
 
 export const logoutUser = async () => {
