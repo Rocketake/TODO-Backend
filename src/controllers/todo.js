@@ -5,9 +5,13 @@ import {
   getAllTodos,
   updateTodo,
 } from '../services/todo.js';
+import { parseFilterParams } from '../utils/ParseFilterParams.js';
 
 export const getAllTodosController = async (req, res) => {
-  const todo = await getAllTodos();
+  const filter = parseFilterParams(req.query);
+
+  const todo = await getAllTodos(filter);
+
   res.status(200).json({
     status: 200,
     message: 'Successfully found todos!',

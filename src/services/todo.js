@@ -1,7 +1,9 @@
 import { todosCollection } from '../db/models/todo.js';
 
-export const getAllTodos = async () => {
-  const todos = await todosCollection.find();
+export const getAllTodos = async (filter) => {
+  const todos = filter
+    ? await todosCollection.find({ status: filter })
+    : await todosCollection.find();
   return todos;
 };
 
